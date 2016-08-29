@@ -1,0 +1,22 @@
+// Place all the styles related to the landing controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.container{
+  background-color: grey;
+  height: 100%;
+}
+.main-content {
+  text-align: center;
+}
+.title {
+  text-align: center;
+}
+
+.sign-up{
+  height: 600px;
+  width: 600px;
+  border-color: #09ffd1;
+  border: solid;
+  border: 5px;
+}

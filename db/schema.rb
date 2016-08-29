@@ -11,6 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 20160527220721) do
+
+  create_table "categories", force: :cascade do |t|
+    t.text     "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "models", force: :cascade do |t|
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+  end
+
+  add_index "models", ["email"], name: "index_models_on_email", unique: true
+  add_index "models", ["reset_password_token"], name: "index_models_on_reset_password_token", unique: true
+
+  create_table "workouts", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "sets"
+    t.integer  "reps"
+    t.integer  "duration"
+    t.text     "description"
+    t.integer  "Category_id"
+    t.integer  "User_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "workouts", ["Category_id"], name: "index_workouts_on_Category_id"
+  add_index "workouts", ["User_id"], name: "index_workouts_on_User_id"
 
 end
